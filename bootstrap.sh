@@ -58,7 +58,7 @@ sudo apt-get -y install scala
 echo -e "${YELLOW}------ Start Jupyter notebook ------${NC}"
 # - Explore running Jupyter as a service
 echo y | jupyter notebook --generate-config
-echo -e 'mlwb\nmlwb' | jupyter notebook password
+echo -e 'mlwb\nmlwb\' | jupyter notebook password
 sudo jupyter notebook --ip=0.0.0.0 --port=8888 --allow-root --notebook-dir='/vagrant/jnotes' &
 
 # Install Zeppelin
