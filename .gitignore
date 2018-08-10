@@ -107,3 +107,4 @@ venv.bak/
 .vagrant
 shunt
 .DS_Store
+resources/apps/
