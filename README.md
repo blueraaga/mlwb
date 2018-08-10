@@ -13,7 +13,9 @@ __Programming Languages:__
 - Python 3.5
   - Libraries: Numpy, Scipy, Pandas, Scikit-learn, Matplotlib, Seaborn, Tensorflow, Keras, Jupyter
 
-__Notebooks:__ Jupyter
+__Notebooks:__
+- Jupyter (default password `mlwb`)
+- Apache Xeppelin
 
 __Databases:__ None
 
