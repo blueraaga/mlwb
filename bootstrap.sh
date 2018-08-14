@@ -43,6 +43,8 @@ echo -e "${YELLOW}------ Install Python packages ------${NC}"
 # Install math processing stuffs
 pip install numpy scipy scikit-learn pandas matplotlib
 pip install jupyter seaborn
+# Install OpenCV for image processing
+pip install opencv-python
 # Install Python ML Frameworks: TensorFlow and MXNet
 pip install tensorflow keras
 pip install mxnet

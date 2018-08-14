@@ -7,7 +7,7 @@
 # - DONE Scala support
 # - DONE MXNet/Gluon support
 # - DONE Flask support
-# - OpenCV support
+# - DONE OpenCV support
 # - Example model deployment with flask
 ########################################################################
 
