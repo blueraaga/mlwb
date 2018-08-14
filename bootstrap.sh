@@ -42,9 +42,10 @@ echo -e "${YELLOW}------ Install Python packages ------${NC}"
 # - Explore possibility for requirements.txt
 # Install math processing stuffs
 pip install numpy scipy scikit-learn pandas matplotlib
-
 pip install jupyter seaborn
+# Install Python ML Frameworks
 pip install tensorflow keras
+pip install mxnet
 
 # Install Java
 echo -e "${YELLOW}------ Install Java ------${NC}"
