@@ -5,8 +5,8 @@
 # - DONE Zepplin support
 # - Spark support
 # - DONE Scala support
-# - MXNet/Gluon support
-# - Flask support
+# - DONE MXNet/Gluon support
+# - DONE Flask support
 # - OpenCV support
 # - Example model deployment with flask
 ########################################################################

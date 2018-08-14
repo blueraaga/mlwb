@@ -43,9 +43,14 @@ echo -e "${YELLOW}------ Install Python packages ------${NC}"
 # Install math processing stuffs
 pip install numpy scipy scikit-learn pandas matplotlib
 pip install jupyter seaborn
-# Install Python ML Frameworks
+# Install Python ML Frameworks: TensorFlow and MXNet
 pip install tensorflow keras
 pip install mxnet
+# Install Flask: Barebones for serving model
+# - Example code to be done
+pip install Flask
+# Install VirtualEnv
+pip install virtualenv
 
 # Install Java
 echo -e "${YELLOW}------ Install Java ------${NC}"
