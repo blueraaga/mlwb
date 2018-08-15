@@ -43,7 +43,9 @@ echo -e "${YELLOW}------ Install Python packages ------${NC}"
 # Install math processing stuffs
 pip install numpy scipy scikit-learn pandas matplotlib
 pip install jupyter seaborn
-# Install OpenCV for image processing
+# Install OpenCV for image processing (preceeded by dependencies)
+# https://stackoverflow.com/questions/47113029/importerror-libsm-so-6-cannot-open-shared-object-file-no-such-file-or-directo
+sudo apt-get -y install libsm6
 pip install opencv-python
 # Install Python ML Frameworks: TensorFlow and MXNet
 pip install tensorflow keras
