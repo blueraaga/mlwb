@@ -41,13 +41,17 @@ sudo apt-get -y remove python3-pip
 echo -e "${YELLOW}------ Install Python packages ------${NC}"
 # - Explore possibility for requirements.txt
 # Install math processing stuffs
-pip install numpy scipy scikit-learn pandas matplotlib
-pip install jupyter seaborn
+pip install numpy scipy pandas
+# Install charting libraries
+pip install matplotlib seaborn altair
+# Install jupyter and its plugins
+pip install jupyter
 # Install OpenCV for image processing (preceeded by dependencies)
 # https://stackoverflow.com/questions/47113029/importerror-libsm-so-6-cannot-open-shared-object-file-no-such-file-or-directo
 sudo apt-get -y install libsm6
 pip install opencv-python
-# Install Python ML Frameworks: TensorFlow and MXNet
+# Install Python ML Frameworks: Scikit-learn, TensorFlow and MXNet
+pip install scikit-learn
 pip install tensorflow keras
 pip install mxnet
 # Install Flask: Barebones for serving model
@@ -64,6 +68,23 @@ sudo apt-get --yes install openjdk-8-jre-headless
 echo -e "${YELLOW}------ Install Scala ------${NC}"
 sudo apt-get -y install scala
 
+# Install Spark
+echo -e "${YELLOW}------ Install Spark ------${NC}"
+# Installed with hadoop
+# More info here: https://stackoverflow.com/questions/32022334/can-apache-spark-run-without-hadoop
+# To speed up operations, Spark can be downloaded upfront to the
+# host OS folder which is mapped to the shared folder
+# /vagrant/resources/apps
+cd /vagrant/resources/apps
+sudo wget --no-verbose --timestamping https://archive.apache.org/dist/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz
+# Always download the checksum, overwriting any previously downloaded file
+sudo wget --no-verbose --output-document=spark-2.3.1-bin-hadoop2.7.tgz.sha512 https://archive.apache.org/dist/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz.sha512
+# Compare checksum
+sudo --user=ubuntu sha512sum -c spark-2.3.1-bin-hadoop2.7.tgz.sha512
+cd /home/ubuntu
+sudo --user=ubuntu tar --extract --skip-old-files --file /vagrant/resources/apps/spark-2.3.1-bin-hadoop2.7.tgz
+sudo --user=ubuntu ln --symbolic --force /home/ubuntu/spark-2.3.1-bin-hadoop2.7 /home/ubuntu/spark
+
 # Start Jupyter notebook
 echo -e "${YELLOW}------ Start Jupyter notebook ------${NC}"
 # - Explore running Jupyter as a service
@@ -73,8 +94,9 @@ sudo jupyter notebook --ip=0.0.0.0 --port=8888 --allow-root --notebook-dir='/vag
 
 # Install Zeppelin
 echo -e "${YELLOW}------ Install Zeppelin ------${NC}"
-# To speed up operations, zeppelin can be downloaded upfront to the
-# host OS folder which is mapped to the shared folder /vagrant
+# To speed up operations, Zeppelin can be downloaded upfront to the
+# host OS folder which is mapped to the shared folder
+# /vagrant/resources/apps
 cd /vagrant/resources/apps
 sudo wget --no-verbose --timestamping http://www-eu.apache.org/dist/zeppelin/zeppelin-0.8.0/zeppelin-0.8.0-bin-all.tgz
 # Always download the checksum, overwriting any previously downloaded file

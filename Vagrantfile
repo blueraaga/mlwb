@@ -9,6 +9,7 @@
 # - DONE Flask support
 # - DONE OpenCV support
 # - Example model deployment with flask
+# - Nginx configuration for flask jupyter etc.
 ########################################################################
 
 # -*- mode: ruby -*-

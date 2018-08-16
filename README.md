@@ -11,14 +11,19 @@ __Operating System:__ Ubuntu (Xenial Xerus) 16.04 64-bit
 
 __Programming Languages:__
 - Python 3.5
-  - Libraries: Numpy, Scipy, Pandas, Scikit-learn, Matplotlib, Seaborn, OpenCV, Tensorflow with Keras, MXNet with Gluon, Virtualenv
+  - Libraries:
+    - Number procesing: Numpy, Scipy, Pandas
+    - Charting: Matplotlib, Seaborn, Altair
+    - Computer vision: OpenCV
+    - Machine learning: Scikit-learn, Tensorflow with Keras, MXNet with Gluon
+    - Envirnment isolation: Virtualenv
 
 __Notebooks:__
 - Jupyter (default password `mlwb`)
 - Apache Xeppelin
 
 __App Deployment:__
-- Flask
+- Flask (Python)
 
 __Databases:__ None
 
