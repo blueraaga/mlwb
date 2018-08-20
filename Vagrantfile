@@ -3,7 +3,7 @@
 # Composed by blueraaga@gmail.com
 # TODO
 # - DONE Zepplin support
-# - Spark support
+# - [ONOING] Spark support
 # - DONE Scala support
 # - DONE MXNet/Gluon support
 # - DONE Flask support
