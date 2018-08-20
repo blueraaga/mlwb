@@ -80,6 +80,7 @@ sudo wget --no-verbose --timestamping https://archive.apache.org/dist/spark/spar
 # Always download the checksum, overwriting any previously downloaded file
 sudo wget --no-verbose --output-document=spark-2.3.1-bin-hadoop2.7.tgz.sha512 https://archive.apache.org/dist/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz.sha512
 # Compare checksum
+# - Use another utility that matches the format
 sudo --user=ubuntu sha512sum -c spark-2.3.1-bin-hadoop2.7.tgz.sha512
 cd /home/ubuntu
 sudo --user=ubuntu tar --extract --skip-old-files --file /vagrant/resources/apps/spark-2.3.1-bin-hadoop2.7.tgz
