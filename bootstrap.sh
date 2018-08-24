@@ -16,7 +16,9 @@ echo -e "${GREEN}------------------------${NC}"
 echo -e "${YELLOW}------ Export language related env. vaiables ------${NC}"
 # Take care of language related notification on ssh login in
 # Ubuntu 16.04
+sed -e 's|LC_ALL=C.UTF-8||g' -i /etc/environment
 sudo echo LC_ALL=C.UTF-8 >> /etc/environment
+sed -e 's|LANG=C.UTF-8||g' -i /etc/environment
 sudo echo LANG=C.UTF-8 >> /etc/environment
 
 echo -e "${YELLOW}------ Update and upgrade package list ------${NC}"
@@ -90,6 +92,7 @@ sudo  --user=ubuntu sha512sum  -c local-spark-hash.sha512
 cd /home/ubuntu
 sudo --user=ubuntu tar --extract --skip-old-files --file /vagrant/resources/apps/spark-2.3.1-bin-hadoop2.7.tgz
 sudo --user=ubuntu ln --symbolic --force /home/ubuntu/spark-2.3.1-bin-hadoop2.7 /home/ubuntu/spark
+sed -e 's|/home/ubuntu/spark/bin:||g' -e 's|PATH="\(.*\)"|PATH="/home/ubuntu/spark/bin:\1"|g' -i /etc/environment
 
 # Start Jupyter notebook
 echo -e "${YELLOW}------ Start Jupyter notebook ------${NC}"
