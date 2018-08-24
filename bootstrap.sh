@@ -16,6 +16,7 @@ echo -e "${GREEN}------------------------${NC}"
 echo -e "${YELLOW}------ Export language related env. vaiables ------${NC}"
 # Take care of language related notification on ssh login in
 # Ubuntu 16.04
+# https://stackoverflow.com/questions/26263249/how-to-modify-etc-environment-from-a-bash-script
 sed -e 's|LC_ALL=C.UTF-8||g' -i /etc/environment
 sudo echo LC_ALL=C.UTF-8 >> /etc/environment
 sed -e 's|LANG=C.UTF-8||g' -i /etc/environment
@@ -118,7 +119,8 @@ sudo --user=ubuntu ln --symbolic --force /home/ubuntu/zeppelin-0.8.0-bin-all /ho
 /home/ubuntu/zeppelin/bin/zeppelin-daemon.sh start
 
 
-
+# Delete empty lines in /etc/environment
+sed -e '/^\s*$/d' -i /etc/environment
 
 echo -e "${GREEN}------------------------${NC}"
 echo -e "${GREEN}End Shell Script${NC}"
