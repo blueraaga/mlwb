@@ -16,7 +16,10 @@ echo -e "${GREEN}------------------------${NC}"
 echo -e "${YELLOW}------ Export language related env. vaiables ------${NC}"
 # Take care of language related notification on ssh login in
 # Ubuntu 16.04
+# https://stackoverflow.com/questions/26263249/how-to-modify-etc-environment-from-a-bash-script
+sed -e 's|LC_ALL=C.UTF-8||g' -i /etc/environment
 sudo echo LC_ALL=C.UTF-8 >> /etc/environment
+sed -e 's|LANG=C.UTF-8||g' -i /etc/environment
 sudo echo LANG=C.UTF-8 >> /etc/environment
 
 echo -e "${YELLOW}------ Update and upgrade package list ------${NC}"
@@ -57,6 +60,8 @@ pip install mxnet
 # Install Flask: Barebones for serving model
 # - Example code to be done
 pip install Flask
+# Install Spark support with Apache Beam
+pip install pyspark apache-beam
 # Install VirtualEnv
 pip install virtualenv
 
@@ -79,17 +84,15 @@ cd /vagrant/resources/apps
 sudo wget --no-verbose --timestamping https://archive.apache.org/dist/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz
 # Always download the checksum, overwriting any previously downloaded file
 sudo wget --no-verbose --output-document=spark-2.3.1-bin-hadoop2.7.tgz.sha512 https://archive.apache.org/dist/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz.sha512
-# sudo wget --no-verbose --output-document=spark-2.3.1-bin-hadoop2.7.tgz.asc https://archive.apache.org/dist/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz.asc
-# sudo wget --no-verbose --output-document=spark-2.3.1-bin-hadoop2.7.tgz.sig https://www.apache.org/dist/spark/KEYS
 # Compare checksum
 # - Use another utility that matches the format
-# sudo --user=ubuntu gpg --verify spark-2.3.1-bin-hadoop2.7.tgz.asc spark-2.3.1-bin-hadoop2.7.tgz
 sudo python3 /vagrant/resources/utils/spark_sha512_gen.py
 sudo  --user=ubuntu sha512sum  -c local-spark-hash.sha512
 
 cd /home/ubuntu
 sudo --user=ubuntu tar --extract --skip-old-files --file /vagrant/resources/apps/spark-2.3.1-bin-hadoop2.7.tgz
 sudo --user=ubuntu ln --symbolic --force /home/ubuntu/spark-2.3.1-bin-hadoop2.7 /home/ubuntu/spark
+sed -e 's|/home/ubuntu/spark/bin:||g' -e 's|PATH="\(.*\)"|PATH="/home/ubuntu/spark/bin:\1"|g' -i /etc/environment
 
 # Start Jupyter notebook
 echo -e "${YELLOW}------ Start Jupyter notebook ------${NC}"
@@ -114,8 +117,9 @@ sudo --user=ubuntu tar --extract --skip-old-files --file /vagrant/resources/apps
 sudo --user=ubuntu ln --symbolic --force /home/ubuntu/zeppelin-0.8.0-bin-all /home/ubuntu/zeppelin
 /home/ubuntu/zeppelin/bin/zeppelin-daemon.sh start
 
-
-
+echo -e "${YELLOW}------ Clean /etc/environment ------${NC}"
+# Delete empty lines in /etc/environment
+sed -e '/^\s*$/d' -i /etc/environment
 
 echo -e "${GREEN}------------------------${NC}"
 echo -e "${GREEN}End Shell Script${NC}"
