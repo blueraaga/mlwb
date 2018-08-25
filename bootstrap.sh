@@ -60,6 +60,8 @@ pip install mxnet
 # Install Flask: Barebones for serving model
 # - Example code to be done
 pip install Flask
+# Install Spark support with Apache Beam
+pip install pyspark apache-beam
 # Install VirtualEnv
 pip install virtualenv
 
