@@ -17,6 +17,7 @@ __Programming Languages:__
     - Computer vision: OpenCV
     - Machine learning: Scikit-learn, Tensorflow with Keras, MXNet with Gluon
     - Envirnment isolation: Virtualenv
+    - Data connectivity & pipeline: pyspark, Apache Beam
 
 __Notebooks:__
 - Jupyter (default password `mlwb`)
