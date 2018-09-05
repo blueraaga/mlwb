@@ -1,11 +1,6 @@
 # mlwb
 Machine Learning Workbench - A one stop setup for dev works for machine learning projects
 
-# Requirements
-- Virtualbox (5+)
-- Vagrant (2+)
-- Mac OSX or Microsoft Windows 10 and above
-
 # Box contents
 __Operating System:__ Ubuntu (Xenial Xerus) 16.04 64-bit
 

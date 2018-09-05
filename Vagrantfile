@@ -1,15 +1,5 @@
 ########################################################################
-# Vagrant config file for ML Workbench mox
-# Composed by blueraaga@gmail.com
-# TODO
-# - DONE Zepplin support
-# - [ONOING] Spark support
-# - DONE Scala support
-# - DONE MXNet/Gluon support
-# - DONE Flask support
-# - DONE OpenCV support
-# - Example model deployment with flask
-# - Nginx configuration for flask jupyter etc.
+# Vagrant config file for ML Workbench
 ########################################################################
 
 # -*- mode: ruby -*-
