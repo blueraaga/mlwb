@@ -1,7 +1,7 @@
 # TODO
 Composed by blueraaga@gmail.com
 - DONE Zepplin support
-- ![in porgress](https://img.shields.io/badge/status-in_progress-orange.svg/?style=popout-square) Spark support
+- ![in progress](https://img.shields.io/badge/status-in_progress-orange.svg?style=popout-square) Spark support
 - DONE Scala support
 - DONE MXNet/Gluon support
 - DONE Flask support
