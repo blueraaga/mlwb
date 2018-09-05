@@ -1,6 +1,6 @@
 # TODO
 - DONE Zepplin support
-- [![in progress](https://img.shields.io/badge/status-in_progress-orange.svg?style=popout-square)](https://github.com/borromean-rings/mlwb/) Spark support
+- [![in progress](https://img.shields.io/badge/status-in_progress-orange.svg)](https://github.com/borromean-rings/mlwb/) Spark support
 - DONE Scala support
 - DONE MXNet/Gluon support
 - DONE Flask support
