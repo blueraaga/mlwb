@@ -1,6 +1,6 @@
 ########################################################################
-# Shell script to set up the box
-# Composed by blueraaga@gmail.com
+# Core shell script to set up the box with all the critical/minimal
+# requirements
 ########################################################################
 
 # Colors to use
@@ -92,7 +92,26 @@ sudo  --user=ubuntu sha512sum  -c local-spark-hash.sha512
 cd /home/ubuntu
 sudo --user=ubuntu tar --extract --skip-old-files --file /vagrant/resources/apps/spark-2.3.1-bin-hadoop2.7.tgz
 sudo --user=ubuntu ln --symbolic --force /home/ubuntu/spark-2.3.1-bin-hadoop2.7 /home/ubuntu/spark
+
 sed -e 's|/home/ubuntu/spark/bin:||g' -e 's|PATH="\(.*\)"|PATH="/home/ubuntu/spark/bin:\1"|g' -i /etc/environment
+# https://medium.com/@GalarnykMichael/install-spark-on-ubuntu-pyspark-231c45677de0
+sed -e 's|SPARK_PATH=/home/ubuntu/spark||g' -i /etc/environment
+sudo echo SPARK_PATH=/home/ubuntu/spark >> /etc/environment
+sed -e 's|PYSPARK_DRIVER_PYTHON="jupyter"||g' -i /etc/environment
+sudo echo PYSPARK_DRIVER_PYTHON="jupyter" >> /etc/environment
+sed -e 's|PYSPARK_DRIVER_PYTHON_OPTS="notebook"||g' -i /etc/environment
+sudo echo PYSPARK_DRIVER_PYTHON_OPTS="notebook" >> /etc/environment
+sed -e 's|PYSPARK_PYTHON=python3||g' -i /etc/environment
+sudo echo PYSPARK_PYTHON=python3 >> /etc/environment
+
+# Spark-YARN: https://www.linode.com/docs/databases/hadoop/install-configure-run-spark-on-top-of-hadoop-yarn-cluster/
+# Setup hadoop: https://www.linode.com/docs/databases/hadoop/how-to-install-and-set-up-hadoop-cluster/
+
+echo -e "${YELLOW}------ Install Hadoop ------${NC}"
+echo "Nothing done currently"
+# Download hadoop from http://www-eu.apache.org/dist/hadoop/common/
+# sed -e 's|HADOOP_HOME=~/hadoop-2.8.0||g' -i /etc/environment
+# sudo echo HADOOP_HOME=~/hadoop-2.8.0 >> /etc/environment
 
 # Start Jupyter notebook
 echo -e "${YELLOW}------ Start Jupyter notebook ------${NC}"

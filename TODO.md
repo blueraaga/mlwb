@@ -1,0 +1,12 @@
+# TODO
+- DONE Zepplin support
+- [![in progress](https://img.shields.io/badge/status-in_progress-orange.svg)](https://github.com/borromean-rings/mlwb/) Spark support
+- DONE Scala support
+- DONE MXNet/Gluon support
+- DONE Flask support
+- DONE OpenCV support
+- Example model deployment with flask
+- Nginx configuration for flask jupyter etc.
+- Try to setup Jupyter as a service
+- Ensure that ports are free when the machine goes up
+- Hadoop setup stuffs
