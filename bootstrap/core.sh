@@ -13,6 +13,8 @@ echo -e "${GREEN}------------------------${NC}"
 echo -e "${GREEN}Start Shell Script${NC}"
 echo -e "${GREEN}------------------------${NC}"
 
+echo -e "${YELLOW}------ Initiating Core Script ------${NC}"
+
 echo -e "${YELLOW}------ Export language related env. vaiables ------${NC}"
 # Take care of language related notification on ssh login in
 # Ubuntu 16.04
@@ -104,15 +106,6 @@ sudo echo PYSPARK_DRIVER_PYTHON_OPTS="notebook" >> /etc/environment
 sed -e 's|PYSPARK_PYTHON=python3||g' -i /etc/environment
 sudo echo PYSPARK_PYTHON=python3 >> /etc/environment
 
-# Spark-YARN: https://www.linode.com/docs/databases/hadoop/install-configure-run-spark-on-top-of-hadoop-yarn-cluster/
-# Setup hadoop: https://www.linode.com/docs/databases/hadoop/how-to-install-and-set-up-hadoop-cluster/
-
-echo -e "${YELLOW}------ Install Hadoop ------${NC}"
-echo "Nothing done currently"
-# Download hadoop from http://www-eu.apache.org/dist/hadoop/common/
-# sed -e 's|HADOOP_HOME=~/hadoop-2.8.0||g' -i /etc/environment
-# sudo echo HADOOP_HOME=~/hadoop-2.8.0 >> /etc/environment
-
 # Start Jupyter notebook
 echo -e "${YELLOW}------ Start Jupyter notebook ------${NC}"
 # - Explore running Jupyter as a service
@@ -140,6 +133,4 @@ echo -e "${YELLOW}------ Clean /etc/environment ------${NC}"
 # Delete empty lines in /etc/environment
 sed -e '/^\s*$/d' -i /etc/environment
 
-echo -e "${GREEN}------------------------${NC}"
-echo -e "${GREEN}End Shell Script${NC}"
-echo -e "${GREEN}------------------------${NC}"
+echo -e "${YELLOW}------ Completed Core Script ------${NC}"
