@@ -72,7 +72,15 @@ sudo --user=ubuntu sha512sum -c zeppelin-0.8.0-bin-all.tgz.sha512
 cd /home/ubuntu
 sudo --user=ubuntu tar --extract --skip-old-files --file /vagrant/resources/apps/zeppelin-0.8.0-bin-all.tgz
 sudo --user=ubuntu ln --symbolic --force /home/ubuntu/zeppelin-0.8.0-bin-all /home/ubuntu/zeppelin
+# Set home directory for notebook
+# https://zeppelin.apache.org/docs/0.5.6-incubating/install/install.html
+sed -e 's|export ZEPPELIN_NOTEBOOK_DIR /vagrant/znotes||g' -i /etc/environment
+sudo echo export ZEPPELIN_NOTEBOOK_DIR="/vagrant/znotes" >> /etc/environment
+
 /home/ubuntu/zeppelin/bin/zeppelin-daemon.sh start
+
+# also check out:
+# https://dziganto.github.io/anaconda/shiro/spark/zeppelin/zeppelinhub/How-To-Locally-Install-Apache-Spark-And-Zeppelin/
 
 # Spark-YARN: https://www.linode.com/docs/databases/hadoop/install-configure-run-spark-on-top-of-hadoop-yarn-cluster/
 # Setup hadoop: https://www.linode.com/docs/databases/hadoop/how-to-install-and-set-up-hadoop-cluster/
