@@ -73,7 +73,7 @@ cd /home/ubuntu
 sudo --user=ubuntu tar --extract --skip-old-files --file /vagrant/resources/apps/zeppelin-0.8.0-bin-all.tgz
 sudo --user=ubuntu ln --symbolic --force /home/ubuntu/zeppelin-0.8.0-bin-all /home/ubuntu/zeppelin
 # Set home directory for notebook
-# https://zeppelin.apache.org/docs/0.5.6-incubating/install/install.html
+# https://zeppelin.apache.org/docs/0.8.0/setup/operation/configuration.html
 sed -e 's|export ZEPPELIN_NOTEBOOK_DIR /vagrant/znotes||g' -i /etc/environment
 sudo echo export ZEPPELIN_NOTEBOOK_DIR="/vagrant/znotes" >> /etc/environment
 
