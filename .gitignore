@@ -108,5 +108,7 @@ venv.bak/
 shunt
 .DS_Store
 resources/apps/
+resources/data/
+resources/utils/
 jnotes
 znotes
